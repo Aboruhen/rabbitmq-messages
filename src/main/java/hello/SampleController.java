@@ -18,7 +18,7 @@ public class SampleController {
     @ResponseBody
     String queue1() {
         logger.info("Emit to queue1");
-        template.convertAndSend("queue1","Message to queue");
+        template.convertAndSend(Application.QUEUE_T_1,"Message to queue");
         return "Emit to queue";
     }
 }

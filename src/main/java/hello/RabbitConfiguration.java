@@ -2,14 +2,11 @@ package hello;
 
 import org.apache.log4j.Logger;
 import org.springframework.amqp.core.AmqpAdmin;
-import org.springframework.amqp.core.Message;
-import org.springframework.amqp.core.MessageListener;
 import org.springframework.amqp.core.Queue;
 import org.springframework.amqp.rabbit.connection.CachingConnectionFactory;
 import org.springframework.amqp.rabbit.connection.ConnectionFactory;
 import org.springframework.amqp.rabbit.core.RabbitAdmin;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
-import org.springframework.amqp.rabbit.listener.SimpleMessageListenerContainer;
 import org.springframework.context.annotation.Bean;
 
 public class RabbitConfiguration {
@@ -38,20 +35,7 @@ public class RabbitConfiguration {
 
     @Bean
     public Queue myQueue1() {
-        return new Queue("queue1");
+        return new Queue("queueT1");
     }
 
-    /*@Bean
-    public SimpleMessageListenerContainer messageListenerContainer1() {
-        SimpleMessageListenerContainer container = new SimpleMessageListenerContainer();
-        container.setConnectionFactory(connectionFactory());
-        container.setQueueNames("queue1");
-        container.setMessageListener(new MessageListener() {
-            //catch from queue1
-            public void onMessage(Message message) {
-                logger.info("received from queue1 : " + new String(message.getBody()));
-            }
-        });
-        return container;
-    }*/
 }

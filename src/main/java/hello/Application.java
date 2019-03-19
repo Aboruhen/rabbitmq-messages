@@ -9,6 +9,9 @@ import org.springframework.context.annotation.Import;
 @ComponentScan
 @Import(RabbitConfiguration.class)
 public class Application {
+
+    public static final String QUEUE_T_1 = "queueT1";
+
     public static void main(String[] args) throws Exception {
         SpringApplication.run(Application.class, args);
     }
